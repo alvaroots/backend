@@ -8,7 +8,7 @@ RUN ./gradlew clean build -x test
 # Etapa de ejecución con JRE 21
 FROM eclipse-temurin:21-jre
 WORKDIR /app
-COPY --from=build /app/build/libs/*.jar app.jar
+COPY --from=build /app/build/libs/app.jar app.jar
 ENV PORT=8080
 EXPOSE 8080
 CMD ["java", "-jar", "app.jar"]
