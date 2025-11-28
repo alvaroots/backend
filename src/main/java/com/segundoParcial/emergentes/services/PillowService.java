@@ -37,7 +37,7 @@ public class PillowService {
         return false;
     }
 
-    public Optional<Pillow> partiallyUpdateStudent(Long code, Pillow pillow) {
+    public Optional<Pillow> partiallyUpdatePillow(Long code, Pillow pillow) {
         return pillowRepository.findById(code).map(item -> {
             if (pillow.getColor() != null) item.setColor(pillow.getColor());
             if (pillow.getImage() != null) item.setImage(pillow.getImage());
@@ -48,7 +48,7 @@ public class PillowService {
         });
     }
 
-    public boolean deleteStudent(Long code) {
+    public boolean deletePillow(Long code) {
         if (!pillowRepository.existsById(code)) {
             return false;
         }

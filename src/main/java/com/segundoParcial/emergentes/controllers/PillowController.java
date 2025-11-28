@@ -55,7 +55,7 @@ public class PillowController {
 
     @PatchMapping("/{code}")
     public ResponseEntity<?> patchPillow(@PathVariable Long code, @RequestBody Pillow pillow) {
-        return pillowService.partiallyUpdateStudent(code, pillow)
+        return pillowService.partiallyUpdatePillow(code, pillow)
                 .map(updated -> ResponseEntity.noContent().build())
                 .orElseGet(() -> ResponseEntity.notFound().build());
 
@@ -63,7 +63,7 @@ public class PillowController {
 
     @DeleteMapping("/{code}")
     ResponseEntity<?> deletePillow(@PathVariable Long code){
-        boolean result = pillowService.deleteStudent(code);
+        boolean result = pillowService.deletePillow(code);
         if(!result)
             return ResponseEntity.badRequest().build();
         return ResponseEntity.noContent().build();
