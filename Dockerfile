@@ -2,7 +2,8 @@
 FROM gradle:8-jdk21 AS build
 COPY . /app
 WORKDIR /app
-RUN gradle clean build
+RUN ./gradlew clean build
+
 
 # Etapa de ejecución con JRE 21
 FROM eclipse-temurin:21-jre
